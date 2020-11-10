@@ -45,12 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
 
         holder.priceTextView.setText(String.valueOf(product.getPrice()));
 
-        Picasso.get()
-                .load(product.getImage())
-                .resize(50, 50)
-                .centerCrop()
-                .into(holder.imageView);
-
+        holder.imageView.setImageResource(product.getImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

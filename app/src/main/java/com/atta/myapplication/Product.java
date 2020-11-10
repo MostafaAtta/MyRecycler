@@ -2,21 +2,21 @@ package com.atta.myapplication;
 
 public class Product {
 
-    private int price;
-    private String title, image;
+    private int price, image;
+    private String title;
 
-    public Product(String title, String image, int price) {
-        this.image = image;
+    public Product(String title, int image, int price ) {
         this.price = price;
+        this.image = image;
         this.title = title;
-    }
-
-    public String getImage() {
-        return image;
     }
 
     public int getPrice() {
         return price;
+    }
+
+    public int getImage() {
+        return image;
     }
 
     public String getTitle() {
