@@ -1,6 +1,7 @@
 package com.atta.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,16 +42,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
 
         Product product = data.get(position);
 
-        holder.titleTextView.setText(product.getTitle());
+        holder.titleTextView.setText(product.getName());
 
         holder.priceTextView.setText(String.valueOf(product.getPrice()));
 
-        holder.imageView.setImageResource(product.getImage());
+        String imageUrl = "http://52.15.188.41/find_me/images/" + product.getImage();
+        Picasso.get()
+                .load(imageUrl)
+                .resize(50, 50)
+                .centerCrop()
+                .into(holder.imageView);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, product.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ProductDetailsActivity.class);
+                intent.putExtra("product name", product.getName());
+                intent.putExtra("product", product);
+                context.startActivity(intent);
             }
         });
 

@@ -1,25 +1,74 @@
 package com.atta.myapplication;
 
-public class Product {
+import java.io.Serializable;
 
-    private int price, image;
-    private String title;
+public class Product implements Serializable {
 
-    public Product(String title, int image, int price ) {
+    private int id, shopId, stock;
+
+    private double price;
+
+    private String name, description, brand, amount, image, category;
+
+    boolean inStock;
+
+    public Product(int id, int shopId, int stock, double price, String name,
+                   String description, String brand, String amount, String image,
+                   String category, boolean inStock) {
+        this.id = id;
+        this.shopId = shopId;
+        this.stock = stock;
         this.price = price;
+        this.name = name;
+        this.description = description;
+        this.brand = brand;
+        this.amount = amount;
         this.image = image;
-        this.title = title;
+        this.category = category;
+        this.inStock = inStock;
     }
 
-    public int getPrice() {
+    public int getId() {
+        return id;
+    }
+
+    public int getShopId() {
+        return shopId;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public int getImage() {
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public String getImage() {
         return image;
     }
 
-    public String getTitle() {
-        return title;
+    public String getCategory() {
+        return category;
+    }
+
+    public boolean isInStock() {
+        return inStock;
     }
 }
